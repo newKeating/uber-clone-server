@@ -70,6 +70,10 @@ class User extends BaseEntity {
 
   @UpdateDateColumn() updatedAt: string;
 
+  public comparePassword(password: string): Promise<boolean> {
+    return bcrypt.compare(password, this.password);
+  }
+
   private hashPassword(password: string): Promise<string> {
     return bcrypt.hash(password, BCRYPT_ROUNDS);
   }
