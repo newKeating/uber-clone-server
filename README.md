@@ -5,11 +5,21 @@ GraphQL, Typescript, NodeJS
 
 ## Features
 
-- [ ] Sign In / Sing Up with Facebook
-- [ ] Sing In with Email
+### Public Resolvers:
+
+- [x] Sign In / Sing Up with Facebook
+- [x] Sign In with Email
 - [ ] Start Phone Number Verification
 - [ ] Complete Phone Number Verification
 - [ ] Sing Up with Email
+
+---
+
+### Private Resolvers:
+
+- [ ] Generate JWT
+- [ ] Verify JWT
+- [ ] Verify Email
 - [ ] Get my Profile
 - [ ] Update my Profile
 - [ ] Toggle Driving Mode
@@ -19,3 +29,12 @@ GraphQL, Typescript, NodeJS
 - [ ] Delete Place
 - [ ] See Nearby Drivers
 - [ ] Subscribe to Nearby Drivers
+- [ ] Reqeust a Ride
+- [ ] Get Nearby Ride Requests
+- [ ] Subscribe to Nearby Ride Requests
+- [ ] Subscribe to Ride Status
+- [ ] Get Chat Room Messages
+- [ ] Subscribe to Chat Room Messages
+- [ ] Send a Chat Message
+- [ ] Get Ride History
+- [ ] See Ride Detail

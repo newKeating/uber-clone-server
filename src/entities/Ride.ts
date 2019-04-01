@@ -8,6 +8,7 @@ import {
   ManyToOne
 } from "typeorm";
 import User from "./User";
+import { rideStatus } from "../types/types";
 
 @Entity()
 class Ride extends BaseEntity {
