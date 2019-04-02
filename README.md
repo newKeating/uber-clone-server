@@ -9,8 +9,8 @@ GraphQL, Typescript, NodeJS
 
 - [x] Sign In / Sing Up with Facebook
 - [x] Sign In with Email
-- [ ] Start Phone Number Verification
-- [ ] Complete Phone Number Verification
+- [x] Start Phone Number Verification
+- [x] Complete Phone Number Verification
 - [ ] Sing Up with Email
 
 ---
