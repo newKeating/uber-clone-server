@@ -10,19 +10,20 @@ type User {
   verifiedPhoneNumber: Boolean!
   profilePhoto: String
   fullName: String
-  isDriving: Boolean
+  isDriving: Boolean!
   isRiding: Boolean!
   isTaken: Boolean!
   lastLng: Float
   lastLat: Float
   lastOrientation: Float
   fbId: String
-  chat: Chat
   messages: [Message]
   ridesAsPassenger: [Ride]
   ridesAsDriver: [Ride]
+  chatsAsDriver: [Chat]
+  chatsAsPassenger: [Chat]
   places: [Place]
-  createAt: String!
+  createdAt: String!
   updatedAt: String
 }
 

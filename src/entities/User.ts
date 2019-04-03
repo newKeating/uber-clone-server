@@ -1,23 +1,23 @@
 import bcrypt from "bcrypt";
 import { IsEmail } from "class-validator";
 import {
-  Entity,
   BaseEntity,
-  PrimaryGeneratedColumn,
-  Column,
-  CreateDateColumn,
-  UpdateDateColumn,
   BeforeInsert,
   BeforeUpdate,
-  ManyToOne,
-  OneToMany
+  Column,
+  CreateDateColumn,
+  Entity,
+  OneToMany,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn
 } from "typeorm";
 import Chat from "./Chat";
 import Message from "./Message";
-import Ride from "./Ride";
 import Place from "./Place";
+import Ride from "./Ride";
 
 const BCRYPT_ROUNDS = 10;
+
 @Entity()
 class User extends BaseEntity {
   @PrimaryGeneratedColumn() id: number;
@@ -47,15 +47,8 @@ class User extends BaseEntity {
   @Column({ type: "boolean", default: false })
   verifiedPhoneNumber: boolean;
 
-  @Column({ type: "text", nullable: true })
-  fbId: string;
-
   @Column({ type: "text" })
   profilePhoto: string;
-
-  get fullName(): string {
-    return `${this.firstName} ${this.lastName}`;
-  }
 
   @Column({ type: "boolean", default: false })
   isDriving: boolean;
@@ -75,8 +68,14 @@ class User extends BaseEntity {
   @Column({ type: "double precision", default: 0 })
   lastOrientation: number;
 
-  @ManyToOne(type => Chat, chat => chat.participants)
-  chat: Chat;
+  @Column({ type: "text", nullable: true })
+  fbId: string;
+
+  @OneToMany(type => Chat, chat => chat.passenger)
+  chatsAsPassenger: Chat[];
+
+  @OneToMany(type => Chat, chat => chat.driver)
+  chatsAsDriver: Chat[];
 
   @OneToMany(type => Message, message => message.user)
   messages: Message[];
@@ -94,12 +93,12 @@ class User extends BaseEntity {
 
   @UpdateDateColumn() updatedAt: string;
 
-  public comparePassword(password: string): Promise<boolean> {
-    return bcrypt.compare(password, this.password);
+  get fullName(): string {
+    return `${this.firstName} ${this.lastName}`;
   }
 
-  private hashPassword(password: string): Promise<string> {
-    return bcrypt.hash(password, BCRYPT_ROUNDS);
+  public comparePassword(password: string): Promise<boolean> {
+    return bcrypt.compare(password, this.password);
   }
 
   @BeforeInsert()
@@ -109,6 +108,10 @@ class User extends BaseEntity {
       const hashedPassword = await this.hashPassword(this.password);
       this.password = hashedPassword;
     }
+  }
+
+  private hashPassword(password: string): Promise<string> {
+    return bcrypt.hash(password, BCRYPT_ROUNDS);
   }
 }
 

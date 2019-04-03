@@ -1,11 +1,11 @@
 import {
-  Entity,
   BaseEntity,
-  PrimaryGeneratedColumn,
-  CreateDateColumn,
-  UpdateDateColumn,
   Column,
-  ManyToOne
+  CreateDateColumn,
+  Entity,
+  ManyToOne,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn
 } from "typeorm";
 import User from "./User";
 
@@ -35,7 +35,7 @@ class Place extends BaseEntity {
   user: User;
 
   @CreateDateColumn() createdAt: string;
+
   @UpdateDateColumn() updatedAt: string;
 }
-
 export default Place;
