@@ -43,6 +43,6 @@ GraphQL, Typescript, NodeJS
 - [x] Subscribe to Ride Status
 - [x] Get Chat Room Messages
 - [x] Send a Chat Message
-- [ ] Subscribe to Chat Room Messages
+- [x] Subscribe to Chat Room Messages
 - [ ] Get Ride History
 - [ ] See Ride Detail
