@@ -38,8 +38,9 @@ GraphQL, Typescript, NodeJS
 - [x] Subscribe to Nearby Drivers
 - [x] Reqeust a Ride
 - [x] Get Nearby Ride Requests
-- [ ] Subscribe to Nearby Ride Requests
-- [ ] Subscribe to Ride Status
+- [x] Subscribe to Nearby Ride Requests
+- [x] Get Ride
+- [x] Subscribe to Ride Status
 - [ ] Get Chat Room Messages
 - [ ] Subscribe to Chat Room Messages
 - [ ] Send a Chat Message
